@@ -1,0 +1,8 @@
+
+public class RightSlope extends Mountain {
+
+	public RightSlope() {
+		
+	}
+
+}
