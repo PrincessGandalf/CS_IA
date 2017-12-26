@@ -1,0 +1,11 @@
+
+public class LeftSlope extends Mountain {
+	private int numTrails;
+	private String trailName;
+	private String difficulty;
+	
+	public LeftSlope() {
+		super();
+	}
+
+}
