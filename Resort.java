@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Timer;
 
 public class Resort {
 	
@@ -6,12 +8,24 @@ public class Resort {
 	public static Scanner scan = new Scanner(System.in);
 	private int numSkiiers = 0;
 	public static int choiceCounter = 0;
+	public static ArrayList<String> types = new ArrayList<String>();
 	
 	public static void main(String[] args) {
 		Tickets tickets = new Tickets();
 		Rental rental = new Rental();
 		CheckIn checkin = new CheckIn();
-		Skier skiier = new Skier();
+		Skier skier = new Skier();
+		LeftSlope left = new LeftSlope("Danny", 25000, "Rocky Road", 7, "Intermediate", 4, "Powder");
+		RightSlope right = new RightSlope("Lola", 25000, "Skier's Gulch", 8, "Advanced", 4, "Crud");
+		
+		System.out.println("It's time to create your Skier's profile.");
+		System.out.println("What is your name?");
+		skier.setName(scan.next());
+		System.out.println("How old are you?");
+		skier.setAge(scan.nextInt());
+		System.out.println("Please choose a level. -Beginner -Intermediate -Expert");
+		skier.setLevel(scan.next());
+		
 		
 	while(choiceCounter <=4) {
 		choice  = welcomeHotel();
@@ -58,8 +72,42 @@ public class Resort {
 					+ "guests is $" + cost);
 			choiceCounter = choiceCounter++;
 		} else if(choice == 3) {
+			System.out.println("Welcome to the Mountain!");
 			
-			choiceCounter = choiceCounter++;
+			
+		} else if(choice == 4) {
+			double radChoice = 0;
+			System.out.println("It's ski rental time!");
+			try {
+				Thread.sleep(1500);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println("Choose a ski radius.");
+			System.out.println("Options: 10m and higher.");
+			radChoice = scan.nextInt();
+			if(skier.getLevel().compareTo("Beginner") == 0 || skier.getLevel().compareTo("Intermediate") == 0) {
+				types = rental.getSki(radChoice, left.getConditions());
+			} else {
+				types = rental.getSki(radChoice, right.getConditions());
+			}
+			
+			System.out.println("Here are the types of skiis you should choose from based on the radius, conditions, and level!");
+			for(int i = 0; i< types.size(); i++) {
+				if(i <= (types.size() - 1) && (types.size() > 1))
+					System.out.print(types.get(i) + ", ");
+				else if(types.size() > 1 && i == (types.size() - 1)) {
+					System.out.print(" and " + types.get(i) + "\n");
+				}
+				else if(types.size() == 1) {
+					System.out.print(types.get(i) + "\n");
+				}
+			}
+			
+			
+			//rental.getSki(radChoice, )
+ 			choiceCounter = choiceCounter++;
 		}
 	}
 
@@ -67,13 +115,14 @@ public class Resort {
 	
 	public static int welcomeHotel() {
 		int choice  = 0;
+
 		System.out.println("Welcome to the Powder Woods Ski Resort!");
 		System.out.println("Please select an option number.");
 		
 		System.out.println("1. Check In");
 		System.out.println("2. Purchase Lift Tickets");
-		System.out.println("3. Rent Skis");
 		System.out.println("3. Go to Mountain");
+		System.out.println("4. Rent Skis");
 		
 		return scan.nextInt();
 	}
