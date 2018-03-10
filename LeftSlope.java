@@ -1,18 +1,20 @@
 
+
 public class LeftSlope extends Mountain implements Lifts {
 	private int numTrails;
-	private String trailName;
+	//private String trailName;
 	private String difficulty;
 	private int numSeats;
 	private String condition;
 	
-	public LeftSlope() {
-		super();
-		numTrails = 0;
-		trailName = "";
-		difficulty = "";
-		numSeats = 0;
-		condition = "";
+	
+	public LeftSlope(String n, double s, String l, int t, String d, int ns, String c) {
+		super(n, s, l);
+		numTrails = t;
+		//trailName = tn;
+		difficulty = d;
+		numSeats = ns;
+		condition = c;
 	}
 
 
@@ -22,10 +24,6 @@ public class LeftSlope extends Mountain implements Lifts {
 
 	public void setDiff(String d) {
 		difficulty = d;
-	}
-
-	public String getTrail() {
-		return trailName;
 	}
 
 	public int getNumP() {
@@ -47,6 +45,12 @@ public class LeftSlope extends Mountain implements Lifts {
 
 	public String getConditions() {
 		return condition;
+	}
+
+	@Override
+	public String getTrail() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	
