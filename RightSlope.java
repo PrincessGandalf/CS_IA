@@ -1,9 +1,22 @@
 
-public class RightSlope extends Mountain implements Lifts {
 
-	public RightSlope() {
-		
+public class RightSlope extends Mountain implements Lifts {
+	private int numTrails;
+	//private String trailName;
+	private String difficulty;
+	private int numSeats;
+	private String condition;
+
+
+	public RightSlope(String n, int s, String l, int t, String d, int ns, String c) {
+		super(n, s, l);
+		numTrails = t;
+		//trailName = tn;
+		difficulty = d;
+		numSeats = ns;
+		condition = c;
 	}
+
 
 	@Override
 	public String getDiff() {
