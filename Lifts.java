@@ -4,7 +4,6 @@ public interface Lifts {
 	void setName(String n);
 	String getDiff();
 	void setDiff(String d);
-	String getTrail();
 	int getNumP();
 	void setNumP(int p);
 	int getNumT();
