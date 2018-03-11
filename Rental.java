@@ -1,18 +1,15 @@
-
 import java.util.ArrayList;
 
 public class Rental extends Skier {
 	private double radius;
 	private double rate;
 	private String type;
-	private ArrayList<String> skiTypes;
 	
 	public Rental() {
 		super();
 		radius = 0;
 		rate = 0;
 		type = "";
-		skiTypes = new ArrayList<String>();
 	}
 	
 	public double getRadius() {
@@ -34,8 +31,10 @@ public class Rental extends Skier {
 		this.type = type;
 	}
 	
-	public void getSki(double radius, String condition) {
+	public ArrayList<String> getSki(double radius, String condition) {
+		ArrayList<String> skiTypes = new ArrayList<String>();
 		if(radius <= 12 && radius >= 10) {
+			skiTypes.clear();
 			skiTypes.add("Slalom");
 		} else if ((radius <= 14 && radius >= 20)) {
 			if(super.getLevel().compareTo("Beginner") == 0) {
@@ -61,9 +60,11 @@ public class Rental extends Skier {
 				skiTypes.add("Giant Slalom");
 			}
 		} else {
-			
-		}
+			skiTypes.clear();
+			skiTypes.add("Super-G");
+			skiTypes.add("Downhill");
+		}	
+		return skiTypes;
 	}
 
 }
-
