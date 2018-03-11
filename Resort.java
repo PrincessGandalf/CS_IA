@@ -1,12 +1,10 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.Timer;
 
 public class Resort {
 	
 	private static int choice;
 	public static Scanner scan = new Scanner(System.in);
-	private int numSkiiers = 0;
 	public static int choiceCounter = 0;
 	public static ArrayList<String> types = new ArrayList<String>();
 	
@@ -72,7 +70,28 @@ public class Resort {
 					+ "guests is $" + cost);
 			choiceCounter = choiceCounter++;
 		} else if(choice == 3) {
+			double rec = 0;
 			System.out.println("Welcome to the Mountain!");
+			System.out.println("Since your level is " + skier.getLevel() + " we recommend the " + 
+					((skier.getLevel().compareTo("Beginner") == 0 || skier.getLevel().compareTo("Intermediate") == 0)
+					?" Left Slope.":" Right Slope."));
+			System.out.print("If you would like to follow through with our recommendation, choose 1. If not, choose 2.");
+			rec = scan.nextInt();
+			if(rec == 1) {
+				if(skier.getLevel().compareTo("Beginner") == 0 || skier.getLevel().compareTo("Intermediate") == 0)
+					left.printAttributes();
+				else 
+					right.printAttributes();
+			} else if (rec == 2) {
+				if(skier.getLevel().compareTo("Beginner") == 0 || skier.getLevel().compareTo("Intermediate") == 0)
+					left.printAttributes();
+				else 
+					right.printAttributes();
+			} else {
+				System.out.println("Error. Please enter choice 1 or 2.");
+				rec = scan.nextInt();
+			}
+			
 			
 			
 		} else if(choice == 4) {
@@ -104,9 +123,6 @@ public class Resort {
 					System.out.print(types.get(i) + "\n");
 				}
 			}
-			
-			
-			//rental.getSki(radChoice, )
  			choiceCounter = choiceCounter++;
 		}
 	}
@@ -114,7 +130,6 @@ public class Resort {
 }
 	
 	public static int welcomeHotel() {
-		int choice  = 0;
 
 		System.out.println("Welcome to the Powder Woods Ski Resort!");
 		System.out.println("Please select an option number.");
