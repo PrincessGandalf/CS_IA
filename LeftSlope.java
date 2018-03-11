@@ -1,5 +1,4 @@
 
-
 public class LeftSlope extends Mountain implements Lifts {
 	private int numTrails;
 	//private String trailName;
@@ -47,12 +46,16 @@ public class LeftSlope extends Mountain implements Lifts {
 		return condition;
 	}
 
-	@Override
-	public String getTrail() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
+	public void printAttributes() {
+		System.out.println("The difficulty level of the left slope services Beginners and Intermediates.");
+		System.out.println("The employee working this lift is " + this.getName() + ".");
+		System.out.println("The lift on this slope is called " + this.getLift() + " and each chair holds " + 
+				(this.getNumP()>0?"1 person.":(this.getNumP() + "people.")));
+		System.out.println("There are " + this.getNumT() + " trails serviced from this lift.");
+		System.out.println("The condition of the snow is " + this.getConditions() + ".");
+		;
+	}
 	
 
 }
