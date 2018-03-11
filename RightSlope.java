@@ -1,5 +1,4 @@
 
-
 public class RightSlope extends Mountain implements Lifts {
 	private int numTrails;
 	//private String trailName;
@@ -21,49 +20,55 @@ public class RightSlope extends Mountain implements Lifts {
 	@Override
 	public String getDiff() {
 		// TODO Auto-generated method stub
-		return null;
+		return difficulty;
 	}
 
 	@Override
 	public void setDiff(String d) {
 		// TODO Auto-generated method stub
+		difficulty = d;
 		
-	}
-
-	@Override
-	public String getTrail() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
 	public int getNumP() {
 		// TODO Auto-generated method stub
-		return 0;
+		return numSeats;
 	}
 
 	@Override
 	public void setNumP(int p) {
 		// TODO Auto-generated method stub
-		
+		numSeats = p;		
 	}
 
 	@Override
 	public int getNumT() {
 		// TODO Auto-generated method stub
-		return 0;
+		return numTrails;
 	}
 
 	@Override
 	public void setNumT(int t) {
 		// TODO Auto-generated method stub
+		numTrails = t;
 		
 	}
 
 	@Override
 	public String getConditions() {
 		// TODO Auto-generated method stub
-		return null;
+		return condition;
+	}
+	
+	public void printAttributes() {
+		System.out.println("The difficulty level of the left slope services Beginners and Intermediates.");
+		System.out.println("The employee working this lift is " + this.getName() + ".");
+		System.out.println("The lift on this slope is called " + this.getLift() + " and each chair holds " + 
+				(this.getNumP()>0?"1 person.":(this.getNumP() + "people.")));
+		System.out.println("There are " + this.getNumT() + " trails serviced from this lift.");
+		System.out.println("The condition of the snow is " + this.getConditions() + ".");
+		;
 	}
 
 }
