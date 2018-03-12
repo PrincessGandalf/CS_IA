@@ -55,23 +55,19 @@ public class Resort {
 			System.out.println("What is your credit card number?");
 			String num = scan.next();
 			checkin.setCreditcard(num);
-			System.out.println("What is your name?");
-			String name = scan.next();
-			checkin.setName(name);
-			System.out.println("How many guests are you bringing?");
+			checkin.setName(skier.getName());
+			System.out.println("How many guests are you bringing, including yourself?");
 			int guest = scan.nextInt();
 			checkin.setNumGuest(guest);
-			System.out.println(name + ", the cost of staying at the resort for all "
-					+ "of your guests is $" + checkin.calcRate());
+			System.out.println(skier.getName() + ", the cost of staying at the resort for all "
+					+ "of your guests is $" + checkin.calcRate() + "0");
 			checkin.creditClassify();
 			choiceCounter++;
 		} else if(choice == 2) {
 			int days = 0;
 			int age = 0;
-			System.out.println("Enter your name.");
-			String name = scan.next();
-			checkin.setName(name);
-			System.out.println("How many guests will be skiing?");
+			checkin.setName(skier.getName());
+			System.out.println("How many guests will be skiing, including yourself?");
 			int guest = scan.nextInt();
 			checkin.setNumGuest(guest);
 			System.out.println("It's time to purchase lift tickets!");
@@ -84,17 +80,21 @@ public class Resort {
 				age = scan.nextInt();
 				cost = cost + (tickets.calcTicCost(age, 10, 15) * days);
 			}
-			System.out.println(name + ", the total cost of the tickets for all "
-					+ "guests is $" + cost);
+			System.out.println(checkin.getName() + ", the total cost of the tickets for all "
+					+ "guests is $" + cost + "0");
 			choiceCounter++;
 		} else if(choice == 3) {
 			double rec = 0;
 			System.out.println("Welcome to the Mountain!");
 			System.out.println("Since your level is " + skier.getLevel() + " we recommend the " + 
 					((skier.getLevel().compareTo("Beginner") == 0 || skier.getLevel().compareTo("Intermediate") == 0)
-					?" Left Slope.":" Right Slope."));
-			System.out.print("If you would like to follow through with our recommendation, choose 1. If not, choose 2.");
+					?"Left Slope.":"Right Slope."));
+			System.out.print("If you would like to follow through with our recommendation, choose 1. If not, choose 2. ");
 			rec = scan.nextInt();
+			while(rec != 1 && rec !=2) {
+				System.out.println("Error. Please enter choice 1 or 2.");
+				rec = scan.nextInt();
+			}
 			if(rec == 1) {
 				if(skier.getLevel().compareTo("Beginner") == 0 || skier.getLevel().compareTo("Intermediate") == 0)
 					left.printAttributes();
@@ -105,10 +105,7 @@ public class Resort {
 					left.printAttributes();
 				else 
 					right.printAttributes();
-			} else {
-				System.out.println("Error. Please enter choice 1 or 2.");
-				rec = scan.nextInt();
-			}
+			} 
 			
 			choiceCounter++;
 			
@@ -166,12 +163,10 @@ public class Resort {
 			yes = false;
 	}
 	
-	System.out.print("The total amout that you spent on food is " + foodCost);
+	System.out.print("The total amout that you spent on food is $" + foodCost + "0");
 	
 	stayCost = cost + (checkin.getNumNights() * checkin.getRate()) + foodCost;
-	System.out.println("lift tickets cost " + cost);
-	System.out.println("cost for hotel room " + checkin.getNumNights() * checkin.getRate());
-	System.out.println("The total cost of your stay, including hotel fees and lift tickets, is " + stayCost);
+	System.out.println("The total cost of your stay, including hotel fees and lift tickets, is $" + stayCost + "0");
 
 }
 	
