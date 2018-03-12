@@ -10,7 +10,6 @@ public class LeftSlope extends Mountain implements Lifts {
 	public LeftSlope(String n, double s, String l, int t, String d, int ns, String c) {
 		super(n, s, l);
 		numTrails = t;
-		//trailName = tn;
 		difficulty = d;
 		numSeats = ns;
 		condition = c;
