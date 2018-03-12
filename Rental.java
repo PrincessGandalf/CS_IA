@@ -31,13 +31,13 @@ public class Rental extends Skier {
 		this.type = type;
 	}
 	
-	public ArrayList<String> getSki(double radius, String condition) {
+	public ArrayList<String> getSki(double radius, String condition, String level) {
 		ArrayList<String> skiTypes = new ArrayList<String>();
 		if(radius <= 12 && radius >= 10) {
 			skiTypes.clear();
 			skiTypes.add("Slalom");
 		} else if ((radius <= 14 && radius >= 20)) {
-			if(super.getLevel().compareTo("Beginner") == 0) {
+			if(level.compareTo("Beginner") == 0) {
 				skiTypes.clear();
 				skiTypes.add("Beginner");
 			} else if (condition.compareTo("Powder") == 0) {
@@ -49,7 +49,7 @@ public class Rental extends Skier {
 				skiTypes.add("Freestyle");
 			}
 		} else if(radius >= 20 && radius <= 30) {
-			if(super.getLevel().compareTo("Beginner") == 0) {
+			if(level.compareTo("Beginner") == 0) {
 				skiTypes.clear();
 				skiTypes.add("Beginner");
 			} else if (condition.compareTo("Powder") == 0) {
