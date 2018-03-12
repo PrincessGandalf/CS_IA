@@ -62,10 +62,10 @@ public class RightSlope extends Mountain implements Lifts {
 	}
 	
 	public void printAttributes() {
-		System.out.println("The difficulty level of the left slope services Beginners and Intermediates.");
+		System.out.println("The difficulty level of the left slope services Experts.");
 		System.out.println("The employee working this lift is " + this.getName() + ".");
 		System.out.println("The lift on this slope is called " + this.getLift() + " and each chair holds " + 
-				(this.getNumP()>0?"1 person.":(this.getNumP() + "people.")));
+				(this.getNumP()==1?"1 person.":(this.getNumP() + "people.")));
 		System.out.println("There are " + this.getNumT() + " trails serviced from this lift.");
 		System.out.println("The condition of the snow is " + this.getConditions() + ".");
 		;
