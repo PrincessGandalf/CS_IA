@@ -119,7 +119,7 @@ public class Resort {
 				e.printStackTrace();
 			}
 			System.out.println("Choose a ski radius.");
-			System.out.println("Options: 10m and higher. ");
+			System.out.println("Options: 10 meters and higher. ");
 			radChoice = scan.nextInt();
 			if(skier.getLevel().compareTo("Beginner") == 0 || skier.getLevel().compareTo("Intermediate") == 0) {
 				types = rental.getSki(radChoice, left.getConditions(), skier.getLevel());
